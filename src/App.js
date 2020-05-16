@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import background from "./cats/background.jpg";
 import front from "./cats/front.png";
@@ -53,6 +53,8 @@ const MenuButton = styled.div`
   border-style: dashed;
 `;
 
+const Attempts = styled.div``;
+
 const AppContainer = styled.div`
   width: 100%;
   height: 100vh;
@@ -75,7 +77,7 @@ const Content = styled.main`
 `;
 
 const Game = styled.div`
-  width: 992px;
+  width: 976px;
   height: 492px;
   background: white;
   display: grid;
@@ -92,19 +94,21 @@ const CatBox = styled.div`
   background-size: contain;
 `;
 
-const Cat = ({ src }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
+const Cat = ({ src, catId, index, isFlipped, onClick }) => {
   const handleClick = () => {
-    setIsFlipped((isFlipped) => !isFlipped);
+    onClick(catId, index);
   };
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
       <Front onClick={handleClick} />
-      <CatBox src={src} onClick={handleClick} />
+      <CatBox src={src} />
     </ReactCardFlip>
   );
 };
+
+const rows = 4;
+const columns = 8;
+const cats = getRandomCats(rows * columns);
 
 const Front = styled.div`
   width: 100%;
@@ -132,8 +136,51 @@ const generateFrs = (num) =>
     .join(" ");
 
 function App() {
-  const rows = 4;
-  const columns = 8;
+  const [firstCatId, setFirstCatId] = useState(undefined);
+  const [firstCatIndex, setFirstCatIndex] = useState(undefined);
+  const [secondCatId, setSecondCatId] = useState(undefined);
+  const [secondCatIndex, setSecondCatIndex] = useState(undefined);
+  const [waitForReset, setWait] = useState(false);
+  const [revealedCats, setRevealedCats] = useState([]);
+  const [attempts, setAttempts] = useState(0);
+
+  useEffect(() => {
+    if (firstCatId !== undefined && secondCatId !== undefined) {
+      if (firstCatId !== secondCatId) {
+        setWait(true);
+        setTimeout(() => {
+          setFirstCatId(undefined);
+          setFirstCatIndex(undefined);
+          setSecondCatId(undefined);
+          setSecondCatIndex(undefined);
+          setWait(false);
+          setAttempts((prevAttempts) => prevAttempts + 1);
+        }, 1000);
+      } else {
+        setRevealedCats((prevRevealedCats) =>
+          prevRevealedCats.concat(firstCatId)
+        );
+        setFirstCatId(undefined);
+        setFirstCatIndex(undefined);
+        setSecondCatId(undefined);
+        setSecondCatIndex(undefined);
+        setAttempts((prevAttempts) => prevAttempts + 1);
+      }
+    }
+  }, [firstCatId, secondCatId]);
+
+  const onCatClick = (catId, index) => {
+    if (!waitForReset) {
+      if (firstCatId !== undefined) {
+        setSecondCatId(catId);
+        setSecondCatIndex(index);
+      } else {
+        setFirstCatId(catId);
+        setFirstCatIndex(index);
+      }
+    }
+  };
+
   return (
     <AppContainer>
       <Header>Catspotting</Header>
@@ -146,9 +193,20 @@ function App() {
         <MenuButton>Contacts</MenuButton>
       </MainNav>
       <Content>
+        <Attempts>Attempts: {attempts}</Attempts>
         <Game rows={rows} columns={columns}>
-          {getRandomCats(rows * columns).map((cat, index) => (
-            <Cat key={index} {...cat} />
+          {cats.map((cat, index) => (
+            <Cat
+              key={index}
+              index={index}
+              isFlipped={
+                index === firstCatIndex ||
+                index === secondCatIndex ||
+                revealedCats.includes(cat.catId)
+              }
+              onClick={onCatClick}
+              {...cat}
+            />
           ))}
         </Game>
       </Content>

@@ -98,7 +98,7 @@ export const getRandomCats = (numOfCats) => {
   const randomCats = [];
   let catsCopy = cats.map((cat, index) => {
     return {
-      catId: index,
+      catId: index + 1,
       src: cat,
     };
   });
