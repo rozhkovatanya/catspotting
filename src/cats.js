@@ -25,6 +25,23 @@ import cat22 from "./cats/cat22.png";
 import cat23 from "./cats/cat23.png";
 import cat24 from "./cats/cat24.png";
 import cat25 from "./cats/cat25.png";
+import cat26 from "./cats/cat26.png";
+import cat27 from "./cats/cat27.png";
+import cat28 from "./cats/cat28.png";
+import cat29 from "./cats/cat29.png";
+import cat30 from "./cats/cat30.png";
+import cat31 from "./cats/cat31.png";
+import cat32 from "./cats/cat32.png";
+import cat33 from "./cats/cat33.png";
+import cat34 from "./cats/cat34.png";
+import cat35 from "./cats/cat35.png";
+import cat36 from "./cats/cat36.png";
+import cat37 from "./cats/cat37.png";
+import cat38 from "./cats/cat38.png";
+import cat39 from "./cats/cat39.png";
+import cat40 from "./cats/cat40.png";
+import cat41 from "./cats/cat41.png";
+import cat42 from "./cats/cat41.png";
 
 export const cats = [
   cat01,
@@ -52,6 +69,23 @@ export const cats = [
   cat23,
   cat24,
   cat25,
+  cat26,
+  cat27,
+  cat28,
+  cat29,
+  cat30,
+  cat31,
+  cat32,
+  cat33,
+  cat34,
+  cat35,
+  cat36,
+  cat37,
+  cat38,
+  cat39,
+  cat40,
+  cat41,
+  cat42,
 ];
 
 const removeByIndex = (array, index) => {

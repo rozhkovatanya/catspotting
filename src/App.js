@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import bc from "./cats/bc.jpg";
-import back from "./cats/back.png";
+import background from "./cats/background.jpg";
+import front from "./cats/front.png";
 import { getRandomCats } from "./cats";
 import ReactCardFlip from "react-card-flip";
 
@@ -69,7 +69,7 @@ const Content = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url(${bc});
+  background: url(${background});
   font-family: "Asap Condensed", sans-serif;
   font-size: 1rem;
 `;
@@ -109,7 +109,7 @@ const Cat = ({ src }) => {
 const Front = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${back});
+  background-image: url(${front});
   background-size: contain;
 `;
 
