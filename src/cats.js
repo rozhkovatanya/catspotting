@@ -41,7 +41,7 @@ import cat38 from "./cats/cat38.png";
 import cat39 from "./cats/cat39.png";
 import cat40 from "./cats/cat40.png";
 import cat41 from "./cats/cat41.png";
-import cat42 from "./cats/cat41.png";
+import cat42 from "./cats/cat42.png";
 
 export const cats = [
   cat01,
