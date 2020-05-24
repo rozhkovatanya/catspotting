@@ -6,6 +6,9 @@ import { getRandomCats } from "./cats";
 import ReactCardFlip from "react-card-flip";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
+import { Flex } from "reflexbox/styled-components";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Header = styled.header`
   display: flex;
@@ -66,7 +69,7 @@ const Attempts = styled.div`
   height: 15vw;
   width: 3vw;
   background: #ffdf3b;
-  top: 250px;
+  top: 20vw;
   left: 0px;
   border-radius: 0px 25px 25px 0px;
   border: 2px dashed black;
@@ -85,7 +88,7 @@ const LevelChanger = styled.div`
   height: 15vw;
   width: 3vw;
   background: #ffdf3b;
-  top: 250px;
+  top: 20vw;
   right: 0px;
   border-radius: 25px 0px 0px 25px;
   border: 2px dashed black;
@@ -100,13 +103,51 @@ const LevelChanger = styled.div`
 const ChooseYourLevelBox = styled.div`
   display: flex;
   justify-content: center;
-  font-family: "Share Tech Mono", monospace;
-  height: 115px;
-  width: 350px;
+  width: 450px;
   background: #ffdf3b;
   border-radius: 15px;
   border: 2px dashed black;
+  flex-direction: column;
+`;
+
+const ChooseYourLevelText = styled.div`
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
+  user-select: none;
+  font-family: "Bangers", cursive;
+  font-size: 2.5rem;
+  color: powderblue;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  display: inline;
+  position: relative;
+  top: 23px;
+`;
+
+const LevelButton = styled.button`
+  width: 75px;
+  display: flex;
+  margin: 0 16px;
+  padding: 5px 11px;
+  justify-content: center;
+  align-content: center;
+  font-family: "Share Tech Mono", monospace;
+  background: powderblue;
+  border: 2px dashed black;
+  user-select: none;
+  cursor: pointer;
+`;
+
+const NewGameButton = styled.button`
+  width: 150px;
+  display: flex;
+  margin: 10px;
+  padding: 5px 11px;
+  justify-content: center;
+  align-content: center;
+  font-family: "Share Tech Mono", monospace;
+  background: #ffdf3b;
+  border: 2px dashed black;
   user-select: none;
   cursor: pointer;
 `;
@@ -289,13 +330,17 @@ function App() {
         <Attempts>Attempts: {attempts}</Attempts>
         <LevelChanger>Change Level</LevelChanger>
         {!level ? (
-          <ChooseYourLevelBox>
-            Choose your level: <br />
-            <button onClick={() => setLevel(1)}>1</button>
-            <button onClick={() => setLevel(2)}>2</button>
-            <button onClick={() => setLevel(3)}>3</button>
-            <button onClick={() => setLevel(4)}>Pro</button>
-          </ChooseYourLevelBox>
+          <>
+            <ChooseYourLevelText>Choose your level:</ChooseYourLevelText>
+            <ChooseYourLevelBox>
+              <Flex width="100%" p="2rem">
+                <LevelButton onClick={() => setLevel(1)}>Noob</LevelButton>
+                <LevelButton onClick={() => setLevel(2)}>Amateur</LevelButton>
+                <LevelButton onClick={() => setLevel(3)}>Elite</LevelButton>
+                <LevelButton onClick={() => setLevel(4)}>Pro</LevelButton>
+              </Flex>
+            </ChooseYourLevelBox>
+          </>
         ) : (
           <Game rows={rows} columns={columns}>
             {cats.map((cat, index) => (
@@ -313,7 +358,9 @@ function App() {
             ))}
           </Game>
         )}
-        {isWon && <button onClick={resetTheGame}>New Game</button>}
+        {isWon && (
+          <NewGameButton onClick={resetTheGame}>New Game</NewGameButton>
+        )}
       </Content>
       <Footer>
         Remember folks, once you've spotted a cat - you can't stop until you

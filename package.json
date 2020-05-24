@@ -9,7 +9,9 @@
     "react-card-flip": "^1.0.10",
     "react-confetti": "^5.0.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-use": "^15.0.1",
+    "reflexbox": "4.0.6",
     "styled-components": "5.1.0"
   },
   "devDependencies": {
