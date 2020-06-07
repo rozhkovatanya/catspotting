@@ -60,8 +60,8 @@ const About = () => {
       <Content>
         <Greeting>Hi there!</Greeting>
         <TextBox>
-          I won't lie to you - the real purpose to create this game was the
-          ability to write "Creator of Catspotting" in my social media accounts'
+          I won't lie to you - the real purpose of creating this game was the
+          ability to add "Creator of Catspotting" to my social media accounts'
           description. Sounds cool, huh? 😁
           <br />
           <br />
@@ -69,27 +69,24 @@ const About = () => {
           <br />
           <br />
           This is my first code project ever, so don't judge me too harshly.
-          I've started learning React during quarantine 2020 and after I
+          I've started learning React during the quarantine 2020. After I
           finished one video course I came up with the idea of Catspotting
           creation. The plan was simple: I have a long-standing addiction to
-          memes and cats + now I'm trying to learn coding. Why not combine all
-          these things together? Sounds like a lot of fun, however, the
+          memes and cats + now I'm trying to learn coding. How about combining
+          these things together? It sounds like a lot of fun, however, the
           development process appeared to be much harder than I expected.
           Believe me, there was an entire ocean of tears and struggle. This game
-          would never see the world without constant psychological support and
+          would never see this world without constant psychological support and
           wise guidance of @rip212. Thank you!
           <br />
           <br />
-          If you have any ideas on how to improve Catspotting - don't hesitate
-          to contact me. From my side, I promise that I will be improving this
-          project as long as I can.
-          <br />
-          <br />
-          Okay, now I'm done whining about this 😸
+          If you have any ideas regarding how to improve Catspotting - don't
+          hesitate to contact me. From my side, I promise that I will be
+          improving this project as I learn and develop.
           <br />
           <br />
           Thanks to all who had enough patience to read this till the very end.
-          Now go play Catspotting!
+          Now go play Catspotting! 😸
         </TextBox>
         <Rozhok src={rozhok} />
         <Kotiki src={kotiki} />

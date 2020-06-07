@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Game from "./Game";
 import About from "./About";
+import News from "./News";
+import Contacts from "./Contacts";
 import { Switch, Route, Link } from "react-router-dom";
 
 const Header = styled.header`
@@ -108,6 +110,12 @@ function App() {
         </Route>
         <Route exact path="/about">
           <About />
+        </Route>
+        <Route exact path="/news">
+          <News />
+        </Route>
+        <Route exact path="/contacts">
+          <Contacts />
         </Route>
       </Switch>
 
