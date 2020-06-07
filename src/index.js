@@ -6,8 +6,19 @@ import { createGlobalStyle } from "styled-components";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
+  body {
+    overflow-y: scroll;
+  }
+
   * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Share Tech Mono", monospace;
+  }
+  
+  a {
+    text-decoration: none; 
+    color: inherit; 
+    font-family: inherit;
   }
 `;
 

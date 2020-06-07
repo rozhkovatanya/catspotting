@@ -3,61 +3,82 @@ import styled from "styled-components";
 import Content from "./Content";
 import kotiki from "./cats/kotiki.png";
 import rozhok from "./cats/rozhok.png";
+import { Flex } from "reflexbox/styled-components";
 
-const Greeting = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+const Greeting = styled.header`
   user-select: none;
   font-family: "Bangers", cursive;
   font-size: 2.5rem;
   color: powderblue;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   position: relative;
-  top: 23px;
-  left: 145px;
+  text-align: end;
+  top: 20px;
+
+  @media (max-width: 540px) {
+    text-align: center;
+  }
 `;
 
 const TextBox = styled.div`
   display: flex;
   justify-content: center;
-  width: 500px;
+  max-width: 500px;
   background: #ffdf3b;
-  border-radius: 15px;
-  padding: 25px;
+  border-radius: 16px;
+  padding: 26px;
   border: 2px dashed black;
-  font-size: 0.85rem;
-  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
   text-align: justify;
 `;
 
-const Rozhok = styled.img`
-  width: 180px;
-  height: 300px;
+const ImagesBox = styled.div`
   display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 295px;
-  right: 2vw;
-  z-index: 1;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: absolute;
+  width: 95vw;
+  bottom: 0;
+  @media (max-width: 375px) {
+    position: static;
+  }
+`;
+
+const Rozhok = styled.img`
+  display: block;
+
+  @media (max-width: 1670px) {
+    width: 180px;
+    height: 300px;
+  }
+
+  @media (max-width: 770px) {
+    width: 90px;
+    height: 150px;
+  }
 `;
 
 const Kotiki = styled.img`
-  width: 250px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 420px;
-  left: 2vw;
-  transform: rotate(-25deg);
-  z-index: 1;
+  position: relative;
+  bottom: 50px;
+  display: block;
+  transform: rotate(-20deg);
+
+  @media (max-width: 1670px) {
+    width: 250px;
+    height: 150px;
+  }
+
+  @media (max-width: 770px) {
+    width: 125px;
+    height: 75px;
+  }
 `;
 
 const About = () => {
   return (
-    <>
-      <Content>
+    <Content>
+      <div>
         <Greeting>Hi there!</Greeting>
         <TextBox>
           I won't lie to you - the real purpose of creating this game was the
@@ -88,10 +109,12 @@ const About = () => {
           Thanks to all who had enough patience to read this till the very end.
           Now go play Catspotting! 😸
         </TextBox>
-        <Rozhok src={rozhok} />
+      </div>
+      <ImagesBox>
         <Kotiki src={kotiki} />
-      </Content>
-    </>
+        <Rozhok src={rozhok} />
+      </ImagesBox>
+    </Content>
   );
 };
 

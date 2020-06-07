@@ -51,20 +51,18 @@ const GeneralBox = styled.div`
 
 const Contacts = () => {
   return (
-    <>
-      <Content>
-        <Greeting>Get in touch</Greeting>
-        <TextBox>
-          If you have any ideas regarding how to improve Catspotting - don't
-          hesitate to contact me 😸
-        </TextBox>
-        <GeneralBox>
-          <ContactBox>Facebook</ContactBox>
-          <ContactBox>Instagram</ContactBox>
-          <ContactBox>Twitter</ContactBox>
-        </GeneralBox>
-      </Content>
-    </>
+    <Content>
+      <Greeting>Get in touch</Greeting>
+      <TextBox>
+        If you have any ideas regarding how to improve Catspotting - don't
+        hesitate to contact me 😸
+      </TextBox>
+      <GeneralBox>
+        <ContactBox>Facebook</ContactBox>
+        <ContactBox>Instagram</ContactBox>
+        <ContactBox>Twitter</ContactBox>
+      </GeneralBox>
+    </Content>
   );
 };
 
