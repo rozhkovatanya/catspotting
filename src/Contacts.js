@@ -29,7 +29,7 @@ const TextBox = styled.div`
   text-align: justify;
 `;
 
-const ContactBox = styled.button`
+const ContactBox = styled.a`
   display: flex;
   justify-content: center;
   width: 100px;
@@ -42,6 +42,10 @@ const ContactBox = styled.button`
   text-align: justify;
   user-select: none;
   cursor: pointer;
+  color: black;
+  &:visited {
+    color: black;
+  }
 `;
 
 const GeneralBox = styled.div`
@@ -59,9 +63,13 @@ const Contacts = () => {
           hesitate to contact me 😸
         </TextBox>
         <GeneralBox>
-          <ContactBox>Facebook</ContactBox>
-          <ContactBox>Instagram</ContactBox>
-          <ContactBox>Twitter</ContactBox>
+          <ContactBox href="https://www.facebook.com/tanyarozhkova/">
+            Facebook
+          </ContactBox>
+          <ContactBox href="https://www.instagram.com/rozhkova_tanya/">
+            Instagram
+          </ContactBox>
+          <ContactBox href="https://twitter.com/rozhkova_t">Twitter</ContactBox>
         </GeneralBox>
       </Content>
     </>
