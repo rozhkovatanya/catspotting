@@ -31,15 +31,13 @@ const TextBox = styled.div`
 
 const News = () => {
   return (
-    <>
-      <Content>
-        <Greeting>Oh no!</Greeting>
-        <TextBox>
-          It looks like here's no news yet. No worries - this page will be
-          updated soon.
-        </TextBox>
-      </Content>
-    </>
+    <Content>
+      <Greeting>Oh no!</Greeting>
+      <TextBox>
+        It looks like here's no news yet. No worries - this page will be updated
+        soon.
+      </TextBox>
+    </Content>
   );
 };
 
